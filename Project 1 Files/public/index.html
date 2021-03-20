@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Random Game Reviews</title>
+  <!-- <documentation at http://demos.jquerymobile.com/1.4.1/ > -->
+
+  <link href='https://fonts.googleapis.com/css?family=Nova Flat' rel='stylesheet'>
+
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <script src="/javascripts/index.js"></script>
+
+  <!--Theme roller-->
+  <link rel="stylesheet" type="text/css" href="stylesheets/themes/PROG209Theme.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/themes/PROG209Theme.min.css" />
+
+  <link rel="stylesheet" type="text/css" href="/stylesheets/index.css">
+</head>
+
+<body>
+  <!--Start of home page-->
+  <div data-role="page" id="home">
+
+    <!--   page header -->
+    <div data-role="header" data-theme='a'>
+      <h1>Random Game Reviews</h1>
+      <div data-role="navbar" data-theme='a' id="nav_bar">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#Load">Add Review</a></li>
+          <li><a href="#ListAll">List Of All Reviews</a></li>
+          <li><a href="#ListSome">Most Recent Reviews</a></li>
+        </ul>
+      </div><!-- /navbar -->
+    </div>
+
+    <!--   page content -->
+    <div data-role="content" data-theme='a'>
+      <div>
+        <h2> Welcome to the Videogame review page!</h2>
+      </div>
+      <div>
+        This is a JQuery Mobile single-page web application created by Thai Anh Van Vu and Darius Cooper for PROG 209.
+        This web application revolves around users submitting reviews for video games and gaming systems featuring a
+        1-10 scale as well as a section for comments.
+        <br>
+        <br>
+
+        Users can also browse a list of reviews that have been added with games and systems being in separate columns.
+        Users can also click on items on the list to go to a separate page that displays the selected review.
+        <br>
+        <br>
+
+        There is also a page for the most recent game review and system review that changes as reviews are added.
+        <br>
+        <br>
+
+        Thank you for visiting and we hope you enjoy.
+      </div>
+    </div>
+
+    <!--  page footer -->
+    <div data-role="footer" data-theme='a'>
+      <h1>Created by Thai Anh Van Vu and Darius Cooper</h1>
+    </div>
+  </div>
+
+
+  <!--Start of Add a game -->
+  <div data-role="page" class="gridProperties" id="Load">
+    <!--  page header -->
+    <div data-role="header" data-theme='a'>
+      <h1>Random Game Reviews</h1>
+      <div data-role="navbar" data-theme='a' id="nav_bar">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#Load">Add Review</a></li>
+          <li><a href="#ListAll">List Of All Reviews</a></li>
+          <li><a href="#ListSome">Most Recent Reviews</a></li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div data-role="content" data-theme='a'>
+      <h2>Add a game review</h2>
+      <img src=" images/images.jpeg" alt=" video games">
+      <br>
+      <!--Name-->
+      Name <br />
+      <input type="text" value="" id="Name" />
+
+      <!--Type-->
+      <div class="ui-field-contain">
+        <label for="select-genre">Type</label>
+        <select name="select-genre" id="Type">
+          <option value="game">Game</option>
+          <option value="system">Game System</option>
+        </select>
+      </div>
+
+      <!--Rating-->
+      <div class="ui-field-contain">
+        <label>Rating</label>
+        <select id="Rating">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+      </div>
+
+      <!--Review-->
+      Review <br />
+      <input type="text" value="" id="Review" />
+
+      <!--Add review button-->
+      <input type="button" value="Add review" id="buttonAdd" data-inline="true" />
+    </div>
+
+    <!--   page footer -->
+    <div data-role="footer" dat -theme='b'>
+      <h1>Created by Thai Anh Van Vu and Darius Cooper</h1>
+    </div>
+  </div>
+
+
+  <!--Start of List of all games-->
+  <div data-role="page" id="ListAll">
+    <!--   page header -->
+    <div data-role="header" data-theme='a'>
+      <h1>Random Game Reviews</h1>
+      <!-- /navbar -->
+      <div data-role="navbar" data-theme='a' id="nav_bar">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#Load">Add Review</a></li>
+          <li><a href="#ListAll">List Of All Reviews</a></li>
+          <li><a href="#ListSome">Most Recent Reviews</a></li>
+        </ul>
+      </div>
+
+      <!--   page content -->
+      <div data-role="content" data-theme='a'>
+        <h2>Here are all of the reviews.</h2>
+        <div class="ui-grid-a">
+
+          <!--Game List-->
+          <div class="ui-block-a">
+            <div class="ui-bar ui-bar-a recentColumns">Most Recent Game Review</div>
+            <div id="divGameList"></div>
+          </div>
+
+          <!--System List-->
+          <div class="ui-block-b">
+            <div class="recentColumns ui-bar ui-bar-a">Most Recent System Review</div>
+            <div id="divSystemList"></div>
+          </div>
+        </div>
+      </div>
+
+      <!--   page footer -->
+      <div data-role="footer" data-theme='a'>
+        <h1>Created by Thai Anh Van Vu and Darius Cooper</h1>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!--Start of Most Recent Reviews-->
+  <div data-role="page" id="ListSome">
+    <!--   page header -->
+    <div data-role="header" data-theme='a'>
+      <h1>Random Game Reviews</h1>
+      <div data-role="navbar" data-theme='a' id="nav_bar">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#Load">Add Review</a></li>
+          <li><a href="#ListAll">List Of All Reviews</a></li>
+          <li><a href="#ListSome">Most Recent Reviews</a></li>
+        </ul>
+      </div><!-- /navbar -->
+
+    </div>
+    <!--   page content -->
+    <div data-role="content" data-theme='a'>
+      <h2>Here are the most recent reviews for games and systems.</h2>
+      <div class="ui-grid-a">
+        
+        <!--Most recent game-->
+        <div class="ui-block-a">
+          <div class="ui-bar ui-bar-a recentColumns">Most Recent Game Review</div>
+          <div id="divMostRecentGame"></div>
+        </div>
+        
+        <!--Most recent system-->
+        <div class="ui-block-b">
+          <div class="recentColumns ui-bar ui-bar-a">Most Recent System Review</div>
+          <div id="divMostRecentSystem"></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!--   page footer -->
+    <div data-role="footer" data-theme='a'>
+      <h1>Created by Thai Anh Van Vu and Darius Cooper</h1>
+    </div>
+  </div>
+
+
+
+  <!-- Start of select system review  page -->
+  <div data-role="page" id="systemDetails">
+
+    <!--   page header -->
+    <div data-role="header" data-theme='a'>
+      <h1>Random Game Reviews</h1>
+      <div data-role="navbar" data-theme='a' id="nav_bar">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#Load">Add Review</a></li>
+          <li><a href="#ListAll">List Of All Reviews</a></li>
+          <li><a href="#ListSome">Most Recent Reviews</a></li>
+        </ul>
+      </div><!-- /navbar -->
+
+    </div>
+
+    <!--  content -->
+    <div data-role="content" data-theme='a'>
+      <div class="selectedReview">
+        <h3>System Review ID Number: </h3>
+        <p id="oneSystemID"></p>
+        <p id="oneSystemType"></p>
+        <p id="oneSystemName"></p>
+        <p id="oneSystemRating"></p>
+        <p id="oneSystemReview"></p>
+      </div>
+
+    </div>
+
+    <!--    footer -->
+    <div data-role="footer" data-theme='a'>
+      <h1>Created by Thai Anh Van Vu and Darius Cooper</h1>
+    </div>
+  </div>
+
+
+
+  <!-- Start of Selected Game Review page -->
+  <div data-role="page" id="gameDetails">
+
+    <!--   page header -->
+    <div data-role="header" data-theme='a'>
+      <h1>Random Game Reviews</h1>
+      <div data-role="navbar" data-theme='a' id="nav_bar">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#Load">Add Review</a></li>
+          <li><a href="#ListAll">List Of All Reviews</a></li>
+          <li><a href="#ListSome">Most Recent Reviews</a></li>
+        </ul>
+      </div><!-- /navbar -->
+
+    </div>
+
+    <!--  content -->
+    <div data-role="content" data-theme='a'>
+      <div class="selectedReview">
+        <h3>Game Review ID Number:
+          <p id="oneGameID"></p>
+        </h3>
+        <p id="oneGameType"></p>
+        <p id="oneGameName"></p>
+        <p id="oneGameRating"></p>
+        <p id="oneGameReview"></p>
+      </div>
+
+    </div>
+    <!--    footer -->
+    <div data-role="footer" data-theme='a'>
+      <h1>Created by Thai Anh Van Vu and Darius Cooper</h1>
+    </div>
+
+  </div>
+
+
+
+
+  <!--hidden, a place to stash the user ID -->
+  <p id="IDparmHere" hidden>change1</p>
+
+</body>
+
+</html>

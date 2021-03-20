@@ -1,0 +1,34 @@
+h1 {
+  color: rgb(13, 114, 63);
+}
+
+li {
+  color: rgb(13, 114, 63);
+  font-size:      20px;
+  font-weight:    bold;
+}
+
+
+#selectedReview {
+  color: rgb(13, 114, 63);
+  font-size:      20px;
+  font-weight:    bold;
+}
+
+.recentColumns {
+  color: rgb(13, 114, 63);
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.gridProperties {
+  color: rgb(13, 114, 63);
+}
+body {
+  background-color: lightblue;
+}
+
+/* div {
+  background-color: greenyellow;
+} */
+
